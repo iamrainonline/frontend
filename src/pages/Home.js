@@ -13,8 +13,7 @@ const Home = () => {
             const res = await axios.get(
                `https://frontend-beta-rose.vercel.app/api/posts${cat}`
             );
-            // setPosts(res.data.reverse());
-            setPosts(res.data);
+            setPosts(res.data.reverse());
          } catch (err) {
             console.log(err);
          }
