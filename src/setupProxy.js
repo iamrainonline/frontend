@@ -5,6 +5,7 @@ module.exports = function (app) {
       "/api", // Your API endpoint prefix
       createProxyMiddleware({
          target: "https://dull-rose-camel-garb.cyclic.app/api",
+         changeOrigin: true,
       })
    );
 };
