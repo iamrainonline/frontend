@@ -11,7 +11,10 @@ const Home = () => {
       const fetchData = async () => {
          try {
             const res = await axios.get(`/api/posts${cat}`);
-            setPosts(res.data.reverse());
+            setTimeout(() => {
+               setPosts(res.data.reverse());
+               console.log("im posts", posts);
+            }, 3000);
          } catch (err) {
             console.log(err);
          }
