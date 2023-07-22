@@ -10,7 +10,9 @@ const Home = () => {
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const res = await axios.get(`/api/posts${cat}`);
+            const res = await axios.get(
+               `https://frontend-beta-rose.vercel.app/api/posts${cat}`
+            );
             setPosts(res.data.reverse());
          } catch (err) {
             console.log(err);
