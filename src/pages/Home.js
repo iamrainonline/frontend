@@ -14,6 +14,7 @@ const Home = () => {
                `https://frontend-beta-rose.vercel.app/api/posts${cat}`
             );
             const reverseData = res.data.reverse();
+            console.log(reverseData);
             setPosts(reverseData);
          } catch (err) {
             console.log(err);
