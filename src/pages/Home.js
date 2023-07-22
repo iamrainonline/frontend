@@ -11,11 +11,9 @@ const Home = () => {
       const fetchData = async () => {
          try {
             const res = await axios.get(
-               `https://frontend-beta-rose.vercel.app/api/posts${cat}`
+               `https://dull-rose-camel-garb.cyclic.app/api/posts${cat}`
             );
-            const reverseData = res.data.reverse();
-            console.log(reverseData);
-            setPosts(reverseData);
+            setPosts(res.data.reverse());
          } catch (err) {
             console.log(err);
          }

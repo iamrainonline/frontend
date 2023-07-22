@@ -19,7 +19,10 @@ const Write = () => {
       try {
          const formData = new FormData();
          formData.append("file", file);
-         const res = await axios.post("/upload", formData);
+         const res = await axios.post(
+            "https://dull-rose-camel-garb.cyclic.app/api/upload",
+            formData
+         );
          return res.data;
       } catch (err) {
          console.log(err);
@@ -30,19 +33,25 @@ const Write = () => {
       const imgUrl = await upload();
       try {
          state
-            ? await axios.put(`/posts/${state.id}`, {
-                 title: title,
-                 desc: value,
-                 cat: cat,
-                 img: file ? imgUrl : "",
-              })
-            : await axios.post(`/posts/`, {
-                 title: title,
-                 desc: value,
-                 cat: cat,
-                 img: file ? imgUrl : "",
-                 date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-              });
+            ? await axios.put(
+                 `https://dull-rose-camel-garb.cyclic.app/api/posts/${state.id}`,
+                 {
+                    title: title,
+                    desc: value,
+                    cat: cat,
+                    img: file ? imgUrl : "",
+                 }
+              )
+            : await axios.post(
+                 `https://dull-rose-camel-garb.cyclic.app/api/posts/`,
+                 {
+                    title: title,
+                    desc: value,
+                    cat: cat,
+                    img: file ? imgUrl : "",
+                    date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+                 }
+              );
          navigate("/");
       } catch (err) {
          console.log(err);

@@ -22,7 +22,9 @@ const Single = () => {
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const res = await axios.get(`/posts/${postId}`);
+            const res = await axios.get(
+               `https://dull-rose-camel-garb.cyclic.app/api/posts/${postId}`
+            );
             setPost(res.data);
             setIsLoading(false); // Set isLoading to false when the data is fetched
          } catch (err) {

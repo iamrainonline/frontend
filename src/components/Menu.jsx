@@ -9,7 +9,7 @@ const Menu = ({ cat }) => {
       const fetchData = async () => {
          try {
             const res = await axios.get(
-               `https://frontend-beta-rose.vercel.app/api/posts/?cat=${cat}`
+               `https://dull-rose-camel-garb.cyclic.app/api/posts/?cat=${cat}`
             );
             setPosts(res.data);
          } catch (err) {

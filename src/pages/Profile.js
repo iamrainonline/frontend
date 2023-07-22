@@ -19,7 +19,10 @@ const Profile = () => {
    useEffect(() => {
       const getUsers = async (e) => {
          try {
-            const data = await axios.get("/profile", { params: { id: "1" } });
+            const data = await axios.get(
+               "https://dull-rose-camel-garb.cyclic.app/api/profile",
+               { params: { id: "1" } }
+            );
             setUserList([data]);
          } catch (e) {
             console.log(e);
@@ -63,7 +66,9 @@ const Profile = () => {
    const deleteUser = async (e) => {
       console.log(deleteId);
       try {
-         await axios.delete(`/users/${deleteId}`);
+         await axios.delete(
+            `https://dull-rose-camel-garb.cyclic.app/api/users/${deleteId}`
+         );
       } catch (err) {
          console.log(err);
       }
