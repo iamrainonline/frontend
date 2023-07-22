@@ -11,10 +11,9 @@ const Home = () => {
       const fetchData = async () => {
          try {
             const res = await axios.get(`/api/posts${cat}`);
-            setTimeout(() => {
-               setPosts(res.data.reverse());
-               console.log("im posts", posts);
-            }, 3000);
+            console.log(res, " i am res");
+            setPosts(res.data.reverse());
+            console.log(posts, " im posts");
          } catch (err) {
             console.log(err);
          }
@@ -31,7 +30,7 @@ const Home = () => {
          <div className="posts">
             {posts.map((post, key) => {
                return (
-                  <div className="post" key={post.id}>
+                  <div className="post" key={key}>
                      <div className="img">
                         <img src={`../upload/${post.img}`} alt="" />
                      </div>

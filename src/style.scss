@@ -10,6 +10,7 @@ h1 {
 p {
    font-size: 16px !important;
 }
+
 .mainparent {
    position: relative;
    z-index: 999;
@@ -794,6 +795,17 @@ p {
                }
             }
          }
+      }
+   }
+}
+@media only screen and (max-width: 1000px) {
+   .post {
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 0 20px;
+      margin: 0 20px;
+      img {
+         width: 75%;
       }
    }
 }
