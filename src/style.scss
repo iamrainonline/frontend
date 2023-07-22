@@ -4,6 +4,12 @@ $lightGreen: #b9e7e7;
    padding: 0;
    transition: all 0.2s;
 }
+h1 {
+   font-size: 27px !important;
+}
+p {
+   font-size: 16px !important;
+}
 .mainparent {
    position: relative;
    z-index: 999;
@@ -12,15 +18,15 @@ $lightGreen: #b9e7e7;
       transition: all 0.5s;
       cursor: pointer;
       z-index: 9999;
-      font-size: 40px;
+      font-size: 20px;
       background-color: red;
       position: fixed;
       top: 160px;
-      left: 240px;
+      left: 170px;
       border-radius: 50%;
       padding: 15px;
-      width: 30px;
-      height: 30px;
+      width: 15px;
+      height: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -29,17 +35,16 @@ $lightGreen: #b9e7e7;
    .newclose {
       cursor: pointer;
       z-index: 9999;
-      font-size: 20px;
+      font-size: 15px;
       background-color: green !important;
       color: rgb(248, 248, 248);
-      font-weight: bold;
       position: fixed;
       top: 160px;
       left: 10px;
       border-radius: 50%;
-      padding: 25px;
-      width: 30px;
-      height: 30px;
+      padding: 20px;
+      width: 15px;
+      height: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -49,8 +54,8 @@ $lightGreen: #b9e7e7;
    border: 6px dashed red;
    z-index: 999;
    position: fixed;
-   height: 250px;
-   width: 250px;
+   height: 200px;
+   width: 200px;
    left: 10px;
    top: 150px;
    background-color: black;
@@ -61,7 +66,7 @@ $lightGreen: #b9e7e7;
    flex-direction: column;
    color: white;
    h1 {
-      font-size: 31px;
+      font-size: 21px;
    }
    .clicktoggle {
       display: flex;
@@ -69,6 +74,7 @@ $lightGreen: #b9e7e7;
       justify-content: center;
       flex-direction: column;
       padding: 20px;
+      font-size: 15px;
       cursor: pointer;
    }
    .whatnottodo {
@@ -103,10 +109,11 @@ $lightGreen: #b9e7e7;
       background: white;
       padding: 10px;
       position: absolute;
-      left: 290px;
+      left: 210px;
       width: 500px;
       text-align: center;
    }
+
    .todoNotlist {
       display: none;
    }
