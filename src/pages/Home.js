@@ -10,9 +10,7 @@ const Home = () => {
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const res = await axios.get(
-               `https://dull-rose-camel-garb.cyclic.app/api/posts${cat}`
-            );
+            const res = await axios.get(`/api/posts${cat}`);
             setPosts(res.data.reverse());
          } catch (err) {
             console.log(err);
