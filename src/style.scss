@@ -52,6 +52,7 @@ p {
    }
 }
 .whattodo {
+   display: none !important;
    border: 6px dashed red;
    z-index: 999;
    position: fixed;
