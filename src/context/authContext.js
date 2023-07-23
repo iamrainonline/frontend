@@ -9,12 +9,25 @@ export const AuthContextProvider = ({ children }) => {
    );
 
    const login = async (inputs) => {
-      const res = await axios.post("/api/auth/login", inputs);
+      const res = await axios.post(
+         "https://dull-rose-camel-garb.cyclic.app/api/auth/login",
+         inputs,
+         {
+            withCredentials: true, // Send credentials (cookies) along with the request
+         }
+      );
       setCurrentUser(res.data);
    };
 
    const logout = async (inputs) => {
-      await axios.post("/api/auth/logout");
+      await axios.post(
+         "https://dull-rose-camel-garb.cyclic.app/api/auth/logout",
+         null,
+
+         {
+            withCredentials: true, // Send credentials (cookies) along with the request
+         }
+      );
       setCurrentUser(null);
    };
 

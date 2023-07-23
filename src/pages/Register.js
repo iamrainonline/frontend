@@ -26,7 +26,13 @@ const Register = () => {
          return;
       }
       try {
-         const response = await axios.post("/api/auth/register", inputs);
+         const response = await axios.post(
+            "https://dull-rose-camel-garb.cyclic.app/api/auth/register",
+            inputs,
+            {
+               withCredentials: true,
+            }
+         );
          if (response.status === 200) {
             setLogged(true);
             setlogError("You account has been created");

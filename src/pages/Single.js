@@ -23,7 +23,10 @@ const Single = () => {
       const fetchData = async () => {
          try {
             const res = await axios.get(
-               `https://dull-rose-camel-garb.cyclic.app/api/posts/${postId}`
+               `https://dull-rose-camel-garb.cyclic.app/api/posts/${postId}`,
+               {
+                  withCredentials: true,
+               }
             );
             setPost(res.data);
             setIsLoading(false); // Set isLoading to false when the data is fetched
@@ -36,7 +39,12 @@ const Single = () => {
 
    const handleDelete = async () => {
       try {
-         await axios.delete(`/api/posts/${postId}`);
+         await axios.delete(
+            `https://dull-rose-camel-garb.cyclic.app/api/posts/${postId}`,
+            {
+               withCredentials: true,
+            }
+         );
          navigate("/");
       } catch (err) {
          console.log(err);

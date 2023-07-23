@@ -9,7 +9,10 @@ const Menu = ({ cat }) => {
       const fetchData = async () => {
          try {
             const res = await axios.get(
-               `https://dull-rose-camel-garb.cyclic.app/api/posts/?cat=${cat}`
+               `https://dull-rose-camel-garb.cyclic.app/api/posts/?cat=${cat}`,
+               {
+                  withCredentials: true,
+               }
             );
             setPosts(res.data);
          } catch (err) {

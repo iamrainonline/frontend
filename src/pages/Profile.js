@@ -19,9 +19,15 @@ const Profile = () => {
    useEffect(() => {
       const getUsers = async (e) => {
          try {
-            const data = await axios.get("/api/profile", {
-               params: { id: "1" },
-            });
+            const data = await axios.get(
+               "https://dull-rose-camel-garb.cyclic.app/api/profile",
+               {
+                  params: { id: "1" },
+               },
+               {
+                  withCredentials: true,
+               }
+            );
 
             setUserList([data]);
          } catch (e) {
