@@ -72,7 +72,10 @@ const Profile = () => {
    const deleteUser = async (e) => {
       console.log(deleteId);
       try {
-         await axios.delete(`/api/users/${deleteId}`);
+         await axios.delete(`/api/users/${deleteId}`),
+            {
+               withCredentials: true,
+            };
       } catch (err) {
          console.log(err);
       }
