@@ -74,10 +74,7 @@ const Profile = () => {
       try {
          await axios.delete(
             `https://calm-puce-lobster-toga.cyclic.app/api/users/${deleteId}`
-         ),
-            {
-               withCredentials: true,
-            };
+         );
       } catch (err) {
          console.log(err);
       }

@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 
@@ -39,7 +39,6 @@ const Home = () => {
                      <div className="content">
                         <Link className="link" to={`/post/${post.id}`}>
                            <h1>{post.title}</h1>
-                           <br />
                         </Link>
                         <p>{getText(post.desc)}</p>
                         <Link className="link" to={`/post/${post.id}`}>
