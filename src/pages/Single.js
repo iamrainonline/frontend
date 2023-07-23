@@ -23,7 +23,7 @@ const Single = () => {
       const fetchData = async () => {
          try {
             const res = await axios.get(
-               `https://dull-rose-camel-garb.cyclic.app/api/posts/${postId}`,
+               `https://calm-puce-lobster-toga.cyclic.app/posts/${postId}`,
                {
                   withCredentials: true,
                }
