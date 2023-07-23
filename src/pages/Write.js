@@ -48,13 +48,16 @@ const Write = () => {
                     withCredentials: true,
                  }
               )
-            : await axios.post(`api/posts/`, {
-                 title: title,
-                 desc: value,
-                 cat: cat,
-                 img: file ? imgUrl : "",
-                 date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-              });
+            : await axios.post(
+                 `https://calm-puce-lobster-toga.cyclic.app/api/posts/`,
+                 {
+                    title: title,
+                    desc: value,
+                    cat: cat,
+                    img: file ? imgUrl : "",
+                    date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+                 }
+              );
          navigate("/");
       } catch (err) {
          console.log(err);
