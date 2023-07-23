@@ -27,7 +27,7 @@ const Register = () => {
       }
       try {
          const response = await axios.post(
-            "https://dull-rose-camel-garb.cyclic.app/api/auth/register",
+            "https://calm-puce-lobster-toga.cyclic.app/api/auth/register",
             inputs,
             {
                withCredentials: true,

@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
 
    const login = async (inputs) => {
       const res = await axios.post(
-         "https://dull-rose-camel-garb.cyclic.app/api/auth/login",
+         "https://calm-puce-lobster-toga.cyclic.app/api/auth/login",
          inputs,
          {
             withCredentials: true, // Send credentials (cookies) along with the request
@@ -21,7 +21,7 @@ export const AuthContextProvider = ({ children }) => {
 
    const logout = async (inputs) => {
       await axios.post(
-         "https://dull-rose-camel-garb.cyclic.app/api/auth/logout",
+         "https://calm-puce-lobster-toga.cyclic.app/api/auth/logout",
          null,
 
          {

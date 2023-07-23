@@ -20,7 +20,7 @@ const Write = () => {
          const formData = new FormData();
          formData.append("file", file);
          const res = await axios.post(
-            "https://dull-rose-camel-garb.cyclic.app/api/upload",
+            "https://calm-puce-lobster-toga.cyclic.app/api/upload",
             formData,
             {
                withCredentials: true,
@@ -37,7 +37,7 @@ const Write = () => {
       try {
          state
             ? await axios.put(
-                 `https://dull-rose-camel-garb.cyclic.app/api/posts/${state.id}`,
+                 `https://calm-puce-lobster-toga.cyclic.app/api/posts/${state.id}`,
                  {
                     title: title,
                     desc: value,

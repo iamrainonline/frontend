@@ -40,7 +40,7 @@ const Single = () => {
    const handleDelete = async () => {
       try {
          await axios.delete(
-            `https://dull-rose-camel-garb.cyclic.app/api/posts/${postId}`,
+            `https://calm-puce-lobster-toga.cyclic.app/api/posts/${postId}`,
             {
                withCredentials: true,
             }
