@@ -1,4 +1,4 @@
-import { React, useRef, useEffect, useContext, useState } from "react";
+import React, { useRef, useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 import { GrInstall } from "react-icons/gr";
@@ -7,6 +7,7 @@ const Navbar = () => {
    const { currentUser, logout } = useContext(AuthContext);
    const [scroll, setScroll] = useState(0);
    const scrollRef = useRef(null);
+   const categoryRef = useRef(null); // New ref for category links
 
    useEffect(() => {
       const handleScroll = () => {
@@ -18,6 +19,12 @@ const Navbar = () => {
          window.removeEventListener("scroll", handleScroll);
       };
    }, []);
+
+   // Function to handle category link clicks
+   const handleCategoryClick = () => {
+      // You can adjust the desired scroll distance here (400 pixels in this case)
+      window.scrollBy(0, 550);
+   };
 
    return (
       <div
@@ -38,30 +45,55 @@ const Navbar = () => {
                   }}
                >
                   <GrInstall size="55" color="#333" />
-                  <h1>Boxi's Blog</h1>
+                  <h1>Kaleidoscope</h1>
                </Link>
             </div>
             <div className="links">
-               <Link className="link" to="/">
-                  <h6>All</h6>
+               {/* Add the onClick event handler for each category link */}
+               <Link className="link" to="/" onClick={handleCategoryClick}>
+                  All
                </Link>
-               <Link className="link" to="/?cat=art">
-                  <h6>Art</h6>
+               <Link
+                  className="link"
+                  to="/?cat=art"
+                  onClick={handleCategoryClick}
+               >
+                  Art
                </Link>
-               <Link className="link" to="/?cat=science">
-                  <h6>Science</h6>
+               <Link
+                  className="link"
+                  to="/?cat=science"
+                  onClick={handleCategoryClick}
+               >
+                  Science
                </Link>
-               <Link className="link" to="/?cat=technology">
-                  <h6>Technology</h6>
+               <Link
+                  className="link"
+                  to="/?cat=technology"
+                  onClick={handleCategoryClick}
+               >
+                  Technology
                </Link>
-               <Link className="link" to="/?cat=cinema">
-                  <h6>Cinema</h6>
+               <Link
+                  className="link"
+                  to="/?cat=cinema"
+                  onClick={handleCategoryClick}
+               >
+                  Cinema
                </Link>
-               <Link className="link" to="/?cat=design">
-                  <h6>Design</h6>
+               <Link
+                  className="link"
+                  to="/?cat=design"
+                  onClick={handleCategoryClick}
+               >
+                  Design
                </Link>
-               <Link className="link" to="/?cat=food">
-                  <h6>Food</h6>
+               <Link
+                  className="link"
+                  to="/?cat=food"
+                  onClick={handleCategoryClick}
+               >
+                  Food
                </Link>
                <div className="loginName">
                   {currentUser && currentUser.username ? (

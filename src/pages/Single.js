@@ -23,7 +23,7 @@ const Single = () => {
       const fetchData = async () => {
          try {
             const res = await axios.get(
-               `https://calm-puce-lobster-toga.cyclic.app/api/posts/${postId}`,
+               process.env.REACT_APP_BASE_URL + `/api/posts/${postId}`,
                {
                   withCredentials: true,
                }
@@ -40,7 +40,7 @@ const Single = () => {
    const handleDelete = async () => {
       try {
          await axios.delete(
-            `https://calm-puce-lobster-toga.cyclic.app/api/posts/${postId}`,
+            process.env.REACT_APP_BASE_URL + `/api/posts/${postId}`,
             {
                withCredentials: true,
             }

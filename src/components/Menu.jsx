@@ -9,7 +9,7 @@ const Menu = ({ cat }) => {
       const fetchData = async () => {
          try {
             const res = await axios.get(
-               `https://calm-puce-lobster-toga.cyclic.app/api/posts/?cat=${cat}`,
+               process.env.REACT_APP_BASE_URL + `/api/posts/?cat=${cat}`,
                {
                   withCredentials: true,
                }

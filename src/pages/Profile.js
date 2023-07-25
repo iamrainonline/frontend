@@ -3,7 +3,7 @@ import axios from "axios";
 import { AuthContext } from "../context/authContext";
 import { AiFillDelete } from "react-icons/ai";
 import moment from "moment";
-import Img from "./Portrat.jpg";
+import Img from "../Img/Portret.jpg";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { Link } from "react-router-dom";
 
@@ -15,15 +15,14 @@ const Profile = () => {
    const [sortedUsers, setSortedUsers] = useState();
    const [modal, setModal] = useState(false);
    const [deleteId, setDeleteId] = useState("");
+   const [userDeleted, setUserDeleted] = useState(false);
 
    useEffect(() => {
       const getUsers = async (e) => {
          try {
             const data = await axios.get(
-               "https://calm-puce-lobster-toga.cyclic.app/api/profile",
-               {
-                  params: { id: "1" },
-               },
+               process.env.REACT_APP_BASE_URL + "/api/profile",
+
                {
                   withCredentials: true,
                }
@@ -35,7 +34,7 @@ const Profile = () => {
          }
       };
       getUsers();
-   }, []);
+   }, [modal, userDeleted]);
 
    useEffect(() => {
       if (userlist.length > 0) {
@@ -70,11 +69,14 @@ const Profile = () => {
    };
 
    const deleteUser = async (e) => {
-      console.log(deleteId);
       try {
          await axios.delete(
-            `https://calm-puce-lobster-toga.cyclic.app/api/users/${deleteId}`
+            process.env.REACT_APP_BASE_URL + `/api/users/${deleteId}`,
+            {
+               withCredentials: true,
+            }
          );
+         setUserDeleted(true);
       } catch (err) {
          console.log(err);
       }
@@ -85,10 +87,10 @@ const Profile = () => {
    return (
       <div className="profile">
          <div className="welcome-message">
-            <h1>Welcome to your profile,</h1>
-            <p>
-               Admin <b> {currentUser.username}</b>
-            </p>
+            <h1>
+               Welcome to your profile, <b> {currentUser.username}</b>
+            </h1>
+
             <div className="editprofile">
                <div className="profiledit">
                   <input type="text" value={currentUser.username} readOnly />
@@ -101,7 +103,7 @@ const Profile = () => {
                </div>
             </div>
             <p>
-               <b>List of registered Users & posts by user</b>
+               <b>List of registered Users & posts by user </b>
             </p>
          </div>
 
@@ -114,7 +116,6 @@ const Profile = () => {
                            className="users-left"
                            onClick={() => {
                               setDeleteId(item.id);
-                              deleteUser();
                               handleId(item.username);
                            }}
                         >
@@ -188,17 +189,16 @@ const Profile = () => {
                   <h3>Are you sure you want to delete this user?</h3>
                   <div className="modalbuttons">
                      <button
-                        style={{ backgroundColor: "green", color: "white" }}
+                        style={{ backgroundColor: "#3F8F29", color: "white" }}
                         onClick={() => {
                            setModal(false);
                            deleteUser();
-                           window.location.reload();
                         }}
                      >
                         Yes
                      </button>
                      <button
-                        style={{ backgroundColor: "red", color: "white" }}
+                        style={{ backgroundColor: "#DE1A24", color: "white" }}
                         onClick={() => setModal(false)}
                      >
                         No

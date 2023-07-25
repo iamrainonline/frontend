@@ -1,4 +1,4 @@
-$lightGreen: #b9e7e7;
+$lightGreen: #f1e7d3;
 * {
    margin: 0;
    padding: 0;
@@ -14,8 +14,8 @@ p {
 .mainparent {
    position: relative;
    z-index: 999;
-
    .close {
+      display: none;
       transition: all 0.5s;
       cursor: pointer;
       z-index: 9999;
@@ -34,6 +34,7 @@ p {
       color: white;
    }
    .newclose {
+      display: none;
       cursor: pointer;
       z-index: 9999;
       font-size: 15px;
@@ -43,7 +44,7 @@ p {
       top: 160px;
       left: 10px;
       border-radius: 50%;
-      padding: 20px;
+      padding: 30px;
       width: 15px;
       height: 15px;
       display: flex;
@@ -52,7 +53,6 @@ p {
    }
 }
 .whattodo {
-   display: none !important;
    border: 6px dashed red;
    z-index: 999;
    position: fixed;
@@ -136,18 +136,19 @@ p {
    justify-content: center;
    .container {
       // login & register
-      width: 1024px;
+      width: 1224px;
       .link {
          text-decoration: none;
          color: inherit;
-         // border: 1px solid white;
       }
       .link-2 {
          background: #333 !important;
-         padding: 8px;
          color: white;
-         width: 100px;
          border-radius: 4px;
+         border: 1px solid white;
+         width: 90px;
+         padding: 4px;
+         font-size: 16px;
 
          &:hover {
             background-color: white !important;
@@ -185,7 +186,7 @@ p {
             flex-direction: column;
             padding: 50px;
             background-color: white;
-            width: 200px;
+            width: 330px;
             gap: 20px;
             position: relative;
             a {
@@ -197,7 +198,7 @@ p {
             .testUser {
                position: absolute;
                top: 0px;
-               left: -170px;
+               left: -183px;
                background-color: #333;
                color: white !important;
                padding: 10px;
@@ -230,7 +231,7 @@ p {
       // Navbar
       .newnavbar {
          z-index: 999;
-         background-color: #b9e7e7;
+         background-color: $lightGreen;
          color: black !important;
       }
       .navbar {
@@ -283,6 +284,10 @@ p {
                gap: 10px;
                font-size: 18px;
                font-weight: bold;
+               a {
+                  font-weight: 100;
+                  margin: 0 3px;
+               }
 
                h6 {
                   font-size: 16px;
@@ -301,7 +306,7 @@ p {
                   display: flex;
                   justify-content: center;
                   border: 1px solid white;
-                  padding: 5px;
+                  font-size: 16px;
 
                   &:hover {
                      color: teal;
@@ -314,37 +319,32 @@ p {
          }
       }
       .profile {
-         margin-top: 120px !important;
+         margin-top: 110px !important;
       }
       .editprofile {
          display: flex;
          flex-direction: row;
          margin: 50px 0;
-         align-items: center;
-         justify-content: space-evenly;
-         width: 50%;
-         h1 {
-            margin-bottom: 10px;
-         }
+         gap: 30px;
+
          .profileimg {
-            border: 2px solid red;
-            height: 176px;
-            width: 170px;
-            border: 3px dashed rgb(232, 221, 221);
+            border: 2px dashed rgba(0, 0, 0, 0.248);
+            height: 200px;
             img {
-               height: 176px;
-               width: 170px;
-               object-fit: cover;
+               height: 100%;
             }
          }
          .profiledit {
+            font-size: 16px;
             display: flex;
             flex-direction: column;
-            width: 300px;
-            gap: 10px;
-            input,
+            gap: 20px;
+            position: relative;
+            width: 270px;
             button {
-               padding: 6px;
+               position: absolute;
+               bottom: 0;
+               width: 100%;
             }
          }
       }
@@ -364,9 +364,9 @@ p {
       // Homepage
 
       .home {
-         margin-top: 120px;
+         margin-top: 130px;
          .posts {
-            margin-top: 50px;
+            margin-top: 130px;
             display: flex;
             flex-direction: column;
             gap: 150px;
@@ -480,6 +480,7 @@ p {
             .edit {
                display: flex;
                gap: 10px;
+
                a,
                span {
                   display: flex;
@@ -491,9 +492,15 @@ p {
                   height: 35px;
                   color: green;
                   cursor: pointer;
+                  &:hover {
+                     transform: scale(1.5);
+                  }
                }
                .delete {
                   color: red !important;
+                  &:hover {
+                     transform: scale(1.5);
+                  }
                }
             }
             h1 {
@@ -554,31 +561,42 @@ p {
             flex-direction: column;
             gap: 10px;
             margin: 25px 0;
+            h1 {
+               margin-top: 30px;
+               margin-bottom: 0;
+            }
          }
          .modal {
-            position: absolute;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: #333;
             color: white;
             flex-direction: column;
-            margin-left: 373px;
-            margin-top: 90px;
-            padding: 20px;
-            height: 200px;
+            margin: 0 auto;
+            padding: 5;
+            width: 300px;
             border-radius: 6px;
-            width: 240px;
             text-align: center;
-
+            height: 200px;
+            top: 30%;
+            margin: 0 auto;
+            padding: 10px;
+            h3 {
+               font-size: 20px;
+            }
             .modalbuttons {
                display: flex;
-               padding: 5px;
                gap: 30px;
                justify-content: space-between;
                button {
                   cursor: pointer;
-
                   padding: 7px;
                   width: 90px;
                   margin-top: 30px;
@@ -617,11 +635,11 @@ p {
             .post-list {
                display: flex;
                flex-direction: column;
-               gap: 10px;
                overflow: hidden;
                padding: 9px;
                border-bottom: 2px solid #333;
-               margin: 25px 0;
+               margin: 20px 0;
+
                .post-list-title {
                   font-size: 22px;
                   font-weight: bold;
@@ -636,14 +654,6 @@ p {
                   border-radius: 3px;
                   font-size: 16px;
                   border: 1px solid #333;
-
-                  &:hover {
-                     padding: 5px;
-                     border: 1px solid #333;
-                     color: black;
-                     background-color: white;
-                     cursor: pointer;
-                  }
                }
             }
          }
@@ -667,6 +677,9 @@ p {
                width: 80%;
                margin: 8px;
                cursor: pointer;
+               p {
+                  margin-bottom: 0px;
+               }
             }
             .users-right {
                display: flex;
@@ -731,8 +744,7 @@ p {
             }
 
             .editorContainer {
-               height: 300px;
-               max-width: 716px;
+               height: 320px;
                overflow-y: scroll;
                overflow-x: hidden;
                border: 1px solid lightgray;
@@ -772,7 +784,11 @@ p {
                .buttons {
                   display: flex;
                   justify-content: space-between;
-
+                  margin-top: 15px;
+                  label,
+                  button {
+                     padding: 10px !important;
+                  }
                   :first-child {
                      cursor: pointer;
                      background-color: white;
@@ -796,6 +812,64 @@ p {
                }
             }
          }
+      }
+   }
+}
+.carouselparent {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: $lightGreen;
+   gap: 15px;
+   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.infomain {
+   width: 40%;
+   height: 100%;
+   flex-direction: column;
+   display: flex;
+   justify-content: center;
+   padding: 10px;
+   a {
+      display: flex;
+      align-items: center;
+      width: 130px;
+      padding: 10px;
+      border: 2px solid white;
+      &:hover {
+         background-color: white;
+         color: #333;
+         border: 2px solid #333;
+      }
+   }
+}
+.carousel {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 500px;
+   margin: auto;
+   z-index: 9;
+   color: black;
+   p {
+      background-color: rgba(0, 0, 0, 0.429);
+      padding: 10px;
+      font-size: 18px !important;
+   }
+
+   h1 {
+      font-size: 40px !important;
+      background-color: rgba(0, 0, 0, 0.429);
+      padding: 10px;
+      border-radius: 6px;
+   }
+   .carouselItem {
+      object-fit: cover;
+      background-color: rgb(0, 0, 0);
+      img {
+         height: 500px;
+         width: 100%;
       }
    }
 }

@@ -10,7 +10,6 @@ const Write = () => {
    const [value, setValue] = useState(state?.desc || "");
    const [title, setTitle] = useState(state?.title || "");
    const [file, setFile] = useState(state?.img || "");
-   // const [file, setFile] = useState(null);
    const [cat, setCat] = useState(state?.cat || "");
 
    const navigate = useNavigate();
@@ -20,7 +19,7 @@ const Write = () => {
          const formData = new FormData();
          formData.append("file", file);
          const res = await axios.post(
-            "https://calm-puce-lobster-toga.cyclic.app/api/upload",
+            process.env.REACT_APP_BASE_URL + "/api/upload",
             formData,
             {
                withCredentials: true,
@@ -31,13 +30,14 @@ const Write = () => {
          console.log(err);
       }
    };
+
    const handleClick = async (e) => {
       e.preventDefault();
       const imgUrl = await upload();
       try {
          state
             ? await axios.put(
-                 `https://calm-puce-lobster-toga.cyclic.app/api/posts/${state.id}`,
+                 process.env.REACT_APP_BASE_URL + `/api/posts/${state.id}`,
                  {
                     title: title,
                     desc: value,
@@ -49,13 +49,16 @@ const Write = () => {
                  }
               )
             : await axios.post(
-                 `https://calm-puce-lobster-toga.cyclic.app/api/posts/`,
+                 process.env.REACT_APP_BASE_URL + `/api/posts/`,
                  {
                     title: title,
                     desc: value,
                     cat: cat,
                     img: file ? imgUrl : "",
                     date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+                 },
+                 {
+                    withCredentials: true,
                  }
               );
          navigate("/");
@@ -97,11 +100,11 @@ const Write = () => {
                   name="file"
                   id="file"
                />
-               <label className="file" htmlFor="file">
-                  Upload Image
-               </label>
+
                <div className="buttons">
-                  <button>Save as a draft</button>
+                  <label className="file" htmlFor="file">
+                     Upload Image
+                  </label>
                   <button onClick={handleClick}>Publish</button>
                </div>
             </div>

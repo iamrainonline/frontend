@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
+import BSC from "../Carousel/BSCarousel";
 
 const Home = () => {
    const [posts, setPosts] = useState([]);
@@ -10,7 +11,7 @@ const Home = () => {
       const fetchData = async () => {
          try {
             const res = await axios.get(
-               `https://calm-puce-lobster-toga.cyclic.app/api/posts${cat}`,
+               process.env.REACT_APP_BASE_URL + `/api/posts${cat}`,
                {
                   withCredentials: true, // Send credentials (cookies) along with the request
                }
@@ -29,6 +30,21 @@ const Home = () => {
    };
    return (
       <div className="home">
+         <div className="carouselparent">
+            <div className="infomain">
+               <h1>
+                  Chronicles of a Renaissance Soul:{" "}
+                  <b>Exploring Food, Science, Cinema, and Beyond</b>
+               </h1>
+               <Link className="link" to="/post/35">
+                  Read More
+               </Link>
+            </div>
+            <div className="carousel">
+               <BSC posts={posts} />
+            </div>
+         </div>
+
          <div className="posts">
             {posts.map((post, key) => {
                return (

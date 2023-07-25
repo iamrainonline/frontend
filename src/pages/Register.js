@@ -27,7 +27,7 @@ const Register = () => {
       }
       try {
          const response = await axios.post(
-            "https://calm-puce-lobster-toga.cyclic.app/api/auth/register",
+            process.env.REACT_APP_BASE_URL + "/api/auth/register",
             inputs,
             {
                withCredentials: true,
