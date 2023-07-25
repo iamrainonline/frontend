@@ -22,6 +22,11 @@ const Write = () => {
             process.env.REACT_APP_BASE_URL + "/api/upload",
             formData,
             {
+               headers: {
+                  "Content-Type": "multipart/form-data",
+               },
+            },
+            {
                withCredentials: true,
             }
          );
