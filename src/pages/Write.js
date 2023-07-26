@@ -36,19 +36,19 @@ const Write = () => {
          console.log(err);
       }
    };
-   const uploadImage = (files) => {
-      const formData = new FormData();
-      formData.append("file", files[0]);
-      console.log(formData);
-      formData.append("upload_preset", "ctj6ghbk");
 
-      axios
-         .post("https://api.cloudinary.com/v1_1/dgzmwwbwm", formData)
-         .then((response) => {
-            console.log(response);
-         });
+   const uploadImage = async (files) => {
+      const instance = axios.create();
+      const data = new FormData();
+      data.append("file", files);
+      data.append("upload_preset", "ctj6ghbk");
+      data.append("cloud_name", "dgzmwwbwm");
+
+      const res = await instance.post(
+         "https://api.cloudinary.com/v1_1/dgzmwwbwm/image/upload/",
+         data
+      );
    };
-
    const handleClick = async (e) => {
       e.preventDefault();
       const imgUrl = await upload();
