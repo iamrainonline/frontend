@@ -4,6 +4,7 @@ import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import moment from "moment";
+import { Cloudinary } from "@cloudinary/url-gen";
 
 const Write = () => {
    const state = useLocation().state;
@@ -34,6 +35,18 @@ const Write = () => {
       } catch (err) {
          console.log(err);
       }
+   };
+   const uploadImage = (files) => {
+      const formData = new FormData();
+      formData.append("file", files[0]);
+      console.log(formData);
+      formData.append("upload_preset", "ctj6ghbk");
+
+      axios
+         .post("https://api.cloudinary.com/v1_1/dgzmwwbwm", formData)
+         .then((response) => {
+            console.log(response);
+         });
    };
 
    const handleClick = async (e) => {
@@ -99,11 +112,11 @@ const Write = () => {
                   <b>Visibility: </b> Public
                </span>
                <input
-                  onChange={(e) => setFile(e.target.files[0])}
-                  style={{ display: "none" }}
+                  onChange={(e) => uploadImage(e.target.files)}
+                  // style={{ display: "none" }}
                   type="file"
-                  name="file"
-                  id="file"
+                  // name="file"
+                  // id="file"
                />
 
                <div className="buttons">
