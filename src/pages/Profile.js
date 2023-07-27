@@ -8,7 +8,7 @@ import { MdAdminPanelSettings } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
-   const { currentUser, logout } = useContext(AuthContext);
+   const { currentUser } = useContext(AuthContext);
 
    const [userlist, setUserList] = useState([]);
    const [userName, setUserName] = useState("");
