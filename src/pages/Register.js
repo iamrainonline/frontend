@@ -38,7 +38,7 @@ const Register = () => {
             setlogError("You account has been created");
             setTimeout(() => {
                navigate("/login");
-            }, 2000);
+            }, 1000);
          }
       } catch (err) {
          console.log(err);

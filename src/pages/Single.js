@@ -65,7 +65,7 @@ const Single = () => {
          <div className="content">
             <img src={`${post[0]?.img}`} alt="" className="imgtest" />
             <div className="user">
-               {post[0].img && <img src={post[0].img} alt="" />}
+               {currentUser.img && <img src={currentUser.img} alt="" />}
                <div className="info">
                   <span>{post[0].username}</span>
                   <p>Posted {moment(post[0].date).fromNow()}</p>
