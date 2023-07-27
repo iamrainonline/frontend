@@ -32,10 +32,8 @@ const Home = () => {
       <div className="home">
          <div className="carouselparent">
             <div className="infomain">
-               <h1>
-                  Chronicles of a Renaissance Soul:{" "}
-                  <b>Exploring Food, Science, Cinema, and Beyond</b>
-               </h1>
+               <h1>Chronicles of a Renaissance Soul: </h1>
+               <p>Exploring Food, Science, Cinema, and Beyond</p>
                <Link className="link" to="/post/35">
                   Read More
                </Link>
@@ -50,7 +48,7 @@ const Home = () => {
                return (
                   <div className="post" key={key}>
                      <div className="img">
-                        <img src={`../upload/${post.img}`} alt="" />
+                        <img src={`${post.img}`} alt="" />
                      </div>
                      <div className="content">
                         <Link className="link" to={`/post/${post.id}`}>

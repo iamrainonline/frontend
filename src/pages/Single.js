@@ -63,14 +63,13 @@ const Single = () => {
    return (
       <div className="single">
          <div className="content">
-            <img src={`../upload/${post[0]?.img}`} alt="" className="imgtest" />
+            <img src={`${post[0]?.img}`} alt="" className="imgtest" />
             <div className="user">
-               {post[0].userImg && <img src={post[0].userImg} alt="" />}
+               {post[0].img && <img src={post[0].img} alt="" />}
                <div className="info">
                   <span>{post[0].username}</span>
                   <p>Posted {moment(post[0].date).fromNow()}</p>
                </div>
-               {/* edit */}
 
                {currentUser && currentUser.username === post[0]?.username && (
                   <div className="edit">

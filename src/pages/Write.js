@@ -37,18 +37,6 @@ const Write = () => {
       }
    };
 
-   const uploadImage = async (files) => {
-      const instance = axios.create();
-      const data = new FormData();
-      data.append("file", files);
-      data.append("upload_preset", "ctj6ghbk");
-      data.append("cloud_name", "dgzmwwbwm");
-
-      const res = await instance.post(
-         "https://api.cloudinary.com/v1_1/dgzmwwbwm/image/upload/",
-         data
-      );
-   };
    const handleClick = async (e) => {
       e.preventDefault();
       const imgUrl = await upload();
@@ -60,7 +48,7 @@ const Write = () => {
                     title: title,
                     desc: value,
                     cat: cat,
-                    img: file ? imgUrl : "",
+                    img: file ? file : "",
                  },
                  {
                     withCredentials: true,
@@ -72,7 +60,7 @@ const Write = () => {
                     title: title,
                     desc: value,
                     cat: cat,
-                    img: file ? imgUrl : "",
+                    img: file ? file : "",
                     date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
                  },
                  {
@@ -83,6 +71,36 @@ const Write = () => {
       } catch (err) {
          console.log(err);
       }
+   };
+   const preset_key = "ctj6ghbk";
+   const cloudName = "dgzmwwbwm";
+
+   const handleFile = async (event) => {
+      const file = event.target.files[0];
+      const url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
+      const data = new FormData();
+      data.append("file", file);
+      data.append("upload_preset", preset_key);
+
+      const fetched = await fetch(url, {
+         method: "post",
+         body: data,
+      });
+
+      const parsed = await fetched.json();
+      // Check if the secure_url property is available in the parsed object
+      if (parsed.secure_url) {
+         // Access the secure_url property and use it as needed
+         console.log(parsed.secure_url);
+
+         // If you want to store the URL in the state (e.g., using setFile), you can do it like this:
+         setFile(parsed.secure_url);
+      } else {
+         // Handle the case when the secure_url property is not available
+         console.error("secure_url not found in the parsed object.");
+      }
+
+      console.log(file);
    };
    return (
       <div className="add">
@@ -107,16 +125,17 @@ const Write = () => {
                <h1>Publish</h1>
                <span>
                   <b>Status: </b>
+                  {state ? "Editing" : "New Post"}
                </span>
                <span>
                   <b>Visibility: </b> Public
                </span>
                <input
-                  onChange={(e) => uploadImage(e.target.files)}
-                  // style={{ display: "none" }}
+                  onChange={handleFile}
+                  style={{ display: "none" }}
                   type="file"
-                  // name="file"
-                  // id="file"
+                  name="file"
+                  id="file"
                />
 
                <div className="buttons">

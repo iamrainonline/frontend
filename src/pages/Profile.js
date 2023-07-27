@@ -8,7 +8,7 @@ import { MdAdminPanelSettings } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
-   const { currentUser } = useContext(AuthContext);
+   const { currentUser, logout } = useContext(AuthContext);
 
    const [userlist, setUserList] = useState([]);
    const [userName, setUserName] = useState("");
@@ -99,7 +99,7 @@ const Profile = () => {
                   <button>Save</button>
                </div>
                <div className="profileimg">
-                  <img src={Img} alt="" />
+                  <img src={userlist[0]?.data[0].img} alt="" />
                </div>
             </div>
             <p>
