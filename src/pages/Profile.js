@@ -7,7 +7,7 @@ import { MdAdminPanelSettings } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 
 const Profile = () => {
-   const { currentUser, logout } = useContext(AuthContext);
+   const { currentUser } = useContext(AuthContext);
 
    const [userlist, setUserList] = useState([]);
    const [userName, setUserName] = useState("");
@@ -60,12 +60,10 @@ const Profile = () => {
          try {
             const data = await axios.get(
                process.env.REACT_APP_BASE_URL + "/api/profile",
-
                {
                   withCredentials: true,
                }
             );
-
             setUserList([data]);
          } catch (e) {
             console.log(e);
@@ -118,7 +116,7 @@ const Profile = () => {
       } catch (err) {
          console.log(err);
       }
-      logout();
+      // logout();
       navigate("/register");
    };
 
