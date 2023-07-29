@@ -116,7 +116,7 @@ const Profile = () => {
       } catch (err) {
          console.log(err);
       }
-      // logout();
+      logout();
       navigate("/register");
    };
 
