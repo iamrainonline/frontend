@@ -15,31 +15,8 @@ const Write = () => {
 
    const navigate = useNavigate();
 
-   const upload = async () => {
-      try {
-         const formData = new FormData();
-         formData.append("file", file);
-         const res = await axios.post(
-            process.env.REACT_APP_BASE_URL + "/api/upload",
-            formData,
-            {
-               headers: {
-                  "Content-Type": "multipart/form-data",
-               },
-            },
-            {
-               withCredentials: true,
-            }
-         );
-         return res.data;
-      } catch (err) {
-         console.log(err);
-      }
-   };
-
    const handleClick = async (e) => {
       e.preventDefault();
-      const imgUrl = await upload();
       try {
          state
             ? await axios.put(
