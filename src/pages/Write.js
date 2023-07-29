@@ -75,8 +75,6 @@ const Write = () => {
          // Handle the case when the secure_url property is not available
          console.error("secure_url not found in the parsed object.");
       }
-
-      console.log(file);
    };
    return (
       <div className="add">
