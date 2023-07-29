@@ -91,8 +91,7 @@ const Write = () => {
       // Check if the secure_url property is available in the parsed object
       if (parsed.secure_url) {
          // Access the secure_url property and use it as needed
-         console.log(parsed.secure_url);
-
+         // console.log(parsed.secure_url);
          // If you want to store the URL in the state (e.g., using setFile), you can do it like this:
          setFile(parsed.secure_url);
       } else {
