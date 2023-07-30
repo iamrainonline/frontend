@@ -105,8 +105,11 @@ const Profile = () => {
 
    const deleteUser = async (e) => {
       try {
-         await axios.delete(
+         await fetch(
             process.env.REACT_APP_BASE_URL + `/api/users/${deleteId}`,
+            {
+               method: "POST",
+            },
             {
                withCredentials: true,
             }

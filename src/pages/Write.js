@@ -4,7 +4,6 @@ import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import moment from "moment";
-import { Cloudinary } from "@cloudinary/url-gen";
 
 const Write = () => {
    const state = useLocation().state;
@@ -60,7 +59,7 @@ const Write = () => {
       data.append("upload_preset", preset_key);
 
       const fetched = await fetch(url, {
-         method: "post",
+         method: "POST",
          body: data,
       });
 
