@@ -4,8 +4,9 @@ module.exports = function (app) {
    app.use(
       "/api", // Your API endpoint prefix
       createProxyMiddleware({
-         target: "https://calm-puce-lobster-toga.cyclic.app/",
+         target: REACT_APP_BASE_URL,
          changeOrigin: true,
+         target: "https://aware-twill-seal.cyclic.app",
       })
    );
 };
