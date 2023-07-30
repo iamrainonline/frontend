@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
-   const [logged, setLogged] = useState(false);
    const [logerror, setlogError] = useState("");
    const [inputs, setInputs] = useState({
       username: "",
@@ -34,7 +33,6 @@ const Register = () => {
             }
          );
          if (response.status === 200) {
-            setLogged(true);
             setlogError("You account has been created");
             setTimeout(() => {
                navigate("/login");

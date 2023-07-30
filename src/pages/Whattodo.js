@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const Whattodo = () => {
    const [num, setNum] = useState(null); // Change initial value to null

@@ -115,8 +115,6 @@ const Profile = () => {
       } catch (err) {
          console.log(err);
       }
-      logout();
-      navigate("/register");
    };
 
    const updateUser = async (e) => {
