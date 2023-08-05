@@ -22,19 +22,14 @@ const Single = () => {
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const config = {
-               method: "GET",
-               mode: "no-cors", // Set the mode to 'no-cors'
-               headers: {
-                  "Content-Type": "application/json",
-               },
-               withCredentials: true,
-            };
-
-            const url = `${process.env.REACT_APP_BASE_URL}/api/posts/${postId}`;
-            const res = await axios(url, config);
+            const res = await axios.get(
+               process.env.REACT_APP_BASE_URL + `/api/posts/${postId}`,
+               {
+                  withCredentials: true,
+               }
+            );
             setPost(res.data);
-            setIsLoading(false);
+            setIsLoading(false); // Set isLoading to false when the data is fetched
          } catch (err) {
             console.log(err);
          }
@@ -44,17 +39,12 @@ const Single = () => {
 
    const handleDelete = async () => {
       try {
-         const config = {
-            method: "DELETE",
-            mode: "no-cors", // Set the mode to 'no-cors'
-            headers: {
-               "Content-Type": "application/json",
-            },
-            withCredentials: true,
-         };
-
-         const url = `${process.env.REACT_APP_BASE_URL}/api/posts/${postId}`;
-         await axios(url, config);
+         await axios.delete(
+            process.env.REACT_APP_BASE_URL + `/api/posts/${postId}`,
+            {
+               withCredentials: true,
+            }
+         );
          navigate("/");
       } catch (err) {
          console.log(err);

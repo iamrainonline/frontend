@@ -9,43 +9,26 @@ export const AuthContextProvider = ({ children }) => {
    );
 
    const login = async (inputs) => {
-      try {
-         const config = {
-            method: "POST",
-            mode: "no-cors", // Set the mode to 'no-cors'
-            headers: {
-               "Content-Type": "application/json",
-            },
+      const res = await axios.post(
+         process.env.REACT_APP_BASE_URL + "/api/auth/login",
+         inputs,
+         {
             withCredentials: true, // Send credentials (cookies) along with the request
-         };
-
-         const url = `${process.env.REACT_APP_BASE_URL}/api/auth/login`;
-         await axios(url, inputs, config);
-         setCurrentUser("Login successful");
-      } catch (err) {
-         console.log(err);
-         setCurrentUser(null);
-      }
+         }
+      );
+      setCurrentUser(res.data);
    };
 
    const logout = async (inputs) => {
-      try {
-         const config = {
-            method: "POST",
-            mode: "no-cors", // Set the mode to 'no-cors'
-            headers: {
-               "Content-Type": "application/json",
-            },
-            withCredentials: true, // Send credentials (cookies) along with the request
-         };
+      await axios.post(
+         process.env.REACT_APP_BASE_URL + "/api/auth/logout",
+         null,
 
-         const url = `${process.env.REACT_APP_BASE_URL}/api/auth/logout`;
-         await axios(url, null, config);
-         setCurrentUser(null); // Assuming logout was successful since we can't access the response data.
-      } catch (err) {
-         console.log(err);
-         setCurrentUser(null);
-      }
+         {
+            withCredentials: true, // Send credentials (cookies) along with the request
+         }
+      );
+      setCurrentUser(null);
    };
 
    useEffect(() => {
