@@ -17,32 +17,31 @@ const Write = () => {
    const handleClick = async (e) => {
       e.preventDefault();
       try {
-         state
-            ? await axios.put(
-                 process.env.REACT_APP_BASE_URL + `/api/posts/${state.id}`,
-                 {
-                    title: title,
-                    desc: value,
-                    cat: cat,
-                    img: file ? file : "",
-                 },
-                 {
-                    withCredentials: true,
-                 }
-              )
-            : await axios.post(
-                 process.env.REACT_APP_BASE_URL + `/api/posts/`,
-                 {
-                    title: title,
-                    desc: value,
-                    cat: cat,
-                    img: file ? file : "",
-                    date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-                 },
-                 {
-                    withCredentials: true,
-                 }
-              );
+         const config = {
+            method: state ? "PUT" : "POST",
+            mode: "no-cors", // Set the mode to 'no-cors'
+            headers: {
+               "Content-Type": "application/json",
+            },
+            withCredentials: true,
+         };
+
+         const dataToSend = {
+            title: title,
+            desc: value,
+            cat: cat,
+            img: file ? file : "",
+         };
+
+         if (!state) {
+            dataToSend.date = moment(Date.now()).format("YYYY-MM-DD HH:mm:ss");
+         }
+
+         const url = state
+            ? `${process.env.REACT_APP_BASE_URL}/api/posts/${state.id}`
+            : `${process.env.REACT_APP_BASE_URL}/api/posts/`;
+
+         await axios(url, dataToSend, config);
          navigate("/");
       } catch (err) {
          console.log(err);
