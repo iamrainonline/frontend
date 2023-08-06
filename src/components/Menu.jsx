@@ -9,7 +9,7 @@ const Menu = ({ cat }) => {
       const fetchData = async () => {
          try {
             const res = await axios.get(
-               process.env.REACT_APP_BASE_URL + `/api/posts/?cat=${cat}`,
+               `https://aware-twill-seal.cyclic.app/api/posts/?cat=${cat}`,
                {
                   withCredentials: true,
                }
