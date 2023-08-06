@@ -168,6 +168,11 @@ const Profile = () => {
          // Handle the case when the secure_url property is not available
          console.error("secure_url not found in the parsed object.");
       }
+      console.log({
+         username: inputs.username,
+         email: inputs.email,
+         img: file ? file : "",
+      });
    };
    return (
       <div className="profile">
