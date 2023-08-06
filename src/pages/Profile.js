@@ -135,6 +135,7 @@ const Profile = () => {
       }
       setBool(false);
       currentUser.username = inputs.username;
+      setEditprofile(!editprofile);
    };
 
    const filteredItems =
