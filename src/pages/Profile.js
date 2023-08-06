@@ -40,7 +40,7 @@ const Profile = () => {
       const loggedUniqueUser = async (e) => {
          try {
             const data = await axios.get(
-               process.env.REACT_APP_BASE_URL + `/api/users/${currentUser.id}`,
+               `https://aware-twill-seal.cyclic.app//api/users/${currentUser.id}`,
                {
                   withCredentials: true,
                }
@@ -58,7 +58,7 @@ const Profile = () => {
       const getUsers = async (e) => {
          try {
             const data = await axios.get(
-               process.env.REACT_APP_BASE_URL + "/api/profile",
+               "https://aware-twill-seal.cyclic.app//api/profile",
                {
                   withCredentials: true,
                }

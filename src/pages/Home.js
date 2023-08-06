@@ -11,7 +11,7 @@ const Home = () => {
       const fetchData = async () => {
          try {
             const res = await axios.get(
-               process.env.REACT_APP_BASE_URL + `/api/posts${cat}`,
+               `https://aware-twill-seal.cyclic.app//api/posts${cat}`,
                {
                   withCredentials: true, // Send credentials (cookies) along with the request
                }

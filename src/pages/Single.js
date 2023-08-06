@@ -23,7 +23,7 @@ const Single = () => {
       const fetchData = async () => {
          try {
             const res = await axios.get(
-               process.env.REACT_APP_BASE_URL + `/api/posts/${postId}`,
+               `https://aware-twill-seal.cyclic.app//api/posts/${postId}`,
                {
                   withCredentials: true,
                }
@@ -40,7 +40,7 @@ const Single = () => {
    const handleDelete = async () => {
       try {
          await axios.delete(
-            process.env.REACT_APP_BASE_URL + `/api/posts/${postId}`,
+            `https://aware-twill-seal.cyclic.app//api/posts/${postId}`,
             {
                withCredentials: true,
             }

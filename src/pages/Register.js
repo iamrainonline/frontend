@@ -26,7 +26,7 @@ const Register = () => {
       }
       try {
          const response = await axios.post(
-            process.env.REACT_APP_BASE_URL + "/api/auth/register",
+            "https://aware-twill-seal.cyclic.app//api/auth/register",
             inputs,
             {
                headers: {

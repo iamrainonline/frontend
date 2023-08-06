@@ -19,7 +19,7 @@ const Write = () => {
       try {
          state
             ? await axios.put(
-                 process.env.REACT_APP_BASE_URL + `/api/posts/${state.id}`,
+                 `https://aware-twill-seal.cyclic.app//api/posts/${state.id}`,
                  {
                     title: title,
                     desc: value,
@@ -31,7 +31,7 @@ const Write = () => {
                  }
               )
             : await axios.post(
-                 process.env.REACT_APP_BASE_URL + `/api/posts/`,
+                 `https://aware-twill-seal.cyclic.app//api/posts/`,
                  {
                     title: title,
                     desc: value,
