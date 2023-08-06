@@ -104,17 +104,28 @@ const Profile = () => {
    };
 
    const deleteUser = async (e) => {
+      // try {
+      //    await fetch(
+      //       `https://aware-twill-seal.cyclic.app/api/users/${deleteId}`,
+      //       {
+      //          method: "DELETE",
+      //       },
+      //       {
+      //          withCredentials: true,
+      //       }
+      //    );
+      //    setUserDeleted(true);
+      // } catch (err) {
+      //    console.log(err);
+      // }
       try {
-         await fetch(
+         await axios.delete(
             `https://aware-twill-seal.cyclic.app/api/users/${deleteId}`,
-            {
-               method: "DELETE",
-            },
             {
                withCredentials: true,
             }
          );
-         setUserDeleted(true);
+         navigate("/");
       } catch (err) {
          console.log(err);
       }
