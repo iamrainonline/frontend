@@ -40,7 +40,7 @@ const Single = () => {
    const handleDelete = async () => {
       try {
          await axios.delete(
-            `https://aware-twill-seal.cyclic.app//api/posts/${postId}`,
+            `https://aware-twill-seal.cyclic.app/api/posts/${postId}`,
             {
                withCredentials: true,
             }
