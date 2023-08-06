@@ -280,7 +280,7 @@ const Profile = () => {
                                     setDeleteId(item.id);
                                  }}
                               >
-                                 Delete Account
+                                 Delete
                                  <AiFillDelete color="red" size="30" />
                               </div>
                            )}
