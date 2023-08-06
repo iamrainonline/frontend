@@ -108,7 +108,7 @@ const Profile = () => {
          await fetch(
             `https://aware-twill-seal.cyclic.app/api/users/${deleteId}`,
             {
-               method: "POST",
+               method: "DELETE",
             },
             {
                withCredentials: true,
