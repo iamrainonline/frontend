@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
 
    const login = async (inputs) => {
       const res = await axios.post(
-         process.env.REACT_APP_BASE_URL + "/api/auth/login",
+         "https://aware-twill-seal.cyclic.app/api/auth/login",
          inputs,
          {
             withCredentials: true, // Send credentials (cookies) along with the request
@@ -21,7 +21,7 @@ export const AuthContextProvider = ({ children }) => {
 
    const logout = async (inputs) => {
       await axios.post(
-         process.env.REACT_APP_BASE_URL + "/api/auth/logout",
+         "https://aware-twill-seal.cyclic.app/api/auth/logout",
          null,
 
          {
