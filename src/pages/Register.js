@@ -29,6 +29,10 @@ const Register = () => {
             process.env.REACT_APP_BASE_URL + "/api/auth/register",
             inputs,
             {
+               headers: {
+                  Accept: "application/json, text/plain, */*",
+                  "Content-Type": "application/json",
+               },
                withCredentials: true,
             }
          );
