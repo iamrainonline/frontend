@@ -58,7 +58,7 @@ const Profile = () => {
       const getUsers = async (e) => {
          try {
             const data = await axios.get(
-               "https://aware-twill-seal.cyclic.app//api/profile",
+               "https://aware-twill-seal.cyclic.app/api/profile",
                {
                   withCredentials: true,
                }
@@ -106,7 +106,7 @@ const Profile = () => {
    const deleteUser = async (e) => {
       try {
          await fetch(
-            process.env.REACT_APP_BASE_URL + `/api/users/${deleteId}`,
+            `https://aware-twill-seal.cyclic.app/api/users/${deleteId}`,
             {
                method: "POST",
             },
@@ -123,7 +123,7 @@ const Profile = () => {
    const updateUser = async (e) => {
       try {
          await axios.put(
-            process.env.REACT_APP_BASE_URL + `/api/users/${inputs.id}`,
+            `https://aware-twill-seal.cyclic.app/api/users/${inputs.id}`,
             {
                username: inputs.username,
                email: inputs.email,

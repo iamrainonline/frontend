@@ -23,7 +23,6 @@ export const AuthContextProvider = ({ children }) => {
       await axios.post(
          "https://aware-twill-seal.cyclic.app/api/auth/logout",
          null,
-
          {
             withCredentials: true, // Send credentials (cookies) along with the request
          }
