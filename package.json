@@ -2,9 +2,12 @@
    "name": "frontend",
    "version": "0.1.0",
    "private": true,
-   "dependencies": {},
+   "dependencies": {
+      "express": "^4.18.2"
+   },
    "scripts": {
-      "start": "react-scripts start",
+      "start": "node server.js",
+      "dev": "react-scripts start",
       "build": "react-scripts build",
       "test": "react-scripts test",
       "eject": "react-scripts eject"
@@ -28,7 +31,6 @@
       ]
    },
    "devDependencies": {
-      "dotenv": "^16.3.1",
       "@cloudinary/react": "^1.11.2",
       "@cloudinary/url-gen": "^1.11.0",
       "@testing-library/jest-dom": "^5.16.5",
@@ -36,6 +38,7 @@
       "@testing-library/user-event": "^13.5.0",
       "axios": "^1.4.0",
       "bootstrap": "^5.3.0",
+      "dotenv": "^16.3.1",
       "http-proxy-middleware": "^2.0.6",
       "moment": "^2.29.4",
       "react": "^18.2.0",
